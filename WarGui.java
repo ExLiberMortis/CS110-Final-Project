@@ -1,23 +1,30 @@
-// GUI for War
+//~ Sam Rowell
+//~ CS110 - Project
+//~ GUI for War
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 
+/* This class is used to create the GUI for the war game */
 public class WarGui extends JFrame
 {
+	// initialize instance variables
     private War game; // the guts
     private Deck player1, player2;
     private CardPile pile = new CardPile();
     private boolean war = false;
     private String warFlag,flag;
     
-    private JPanel topPanel,bottomPanel;  // break up regions
+    // create some of the GUI components
+    private JPanel topPanel,bottomPanel;  
     
-    private JButton next;   // buttons
+    private JButton next;   
     
-    private JLabel status; // game status
-    private JLabel title;   // static title
+    private JLabel status; 
+    private JLabel title;   
     private JLabel player1Hand;
     private JLabel player1Deck;
     private JLabel player2Hand;
@@ -26,7 +33,8 @@ public class WarGui extends JFrame
     private ImageIcon cardBack; 
    
 	
-	
+/* This constructor creates the framwork and layout for the GUI,
+ *  and takes no arguments */ 	
 	// build the GUI
     public WarGui()
     {
@@ -52,7 +60,9 @@ public class WarGui extends JFrame
 		topPanel.add(player2Deck); 
         topPanel.add(player2Hand);  
         topPanel.add(player1Hand);    
-        topPanel.add(player1Deck);     
+        topPanel.add(player1Deck);   
+        
+        topPanel.setBackground(Color.green);  
         
         bottomPanel = new JPanel(new GridLayout(2,1));
         status = new JLabel("Let's play WAR!",SwingConstants.CENTER);
@@ -70,22 +80,30 @@ public class WarGui extends JFrame
 		add(topPanel);
 		add(bottomPanel);
 	}
-	
+/* The updateImageP1 method takes an argument for a card, and changes 
+ * the image being displayed in the GUI to that card's image
+ * @param c A Card object with an image tied to it
+ */
 	//update player1 hand image
 	private void updateImageP1(Card c)
 	{
 		player1Hand.setIcon(new ImageIcon("Cards/"+ c.getImage()));
 	}
-	
+/* The updateImageP2 method takes an argument for a card, and changes 
+ * the image being displayed in the GUI to that card's image
+ * @param c A Card object with an image tied to it
+ */
 	private void updateImageP2(Card c)
 	{
 		player2Hand.setIcon(new ImageIcon("Cards/"+ c.getImage()));
 	}
 			
-		
+/* The ButtonListener class reacts to button presses in the GUI */		
    // handle button events
    private class ButtonListener implements ActionListener
    {
+/* The actionPerformed method reacts to the button being pressed 
+ * during each round of play */	   
       public void actionPerformed(ActionEvent e)
       {     
 			
@@ -155,20 +173,6 @@ public class WarGui extends JFrame
 			}
 		}
 	}
-	
-	//~ private class WarButtonListener implements ActionListener
-	//~ {
-    //~ 
-   //~ 
-		//~ public void actionPerformed(ActionEvent e)
-		//~ {
-		//~ // disable all buttons
-		//~ // private method of TicTacToe class
-		//~ // not static because it accesses instance variables
-	private void disableAll()
-	{
-		next.setEnabled(false);
-	} 
 }
 	
 
