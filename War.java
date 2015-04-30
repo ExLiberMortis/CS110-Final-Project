@@ -1,14 +1,21 @@
-import java.util.ArrayList;
+//~ Sam Rowell
+//~ CS110 - Project
+//~ War class - replicates a game of the card game war
 
+import java.util.ArrayList;
+/* This War class represents a card game of War with the logical methods
+ * necessary to play the game */
 public class War
 {
-	
+		// initialize instance variables
 		Deck masterDeck, deck1, deck2;
 		Card player1, player2;
 		final int PLAYER_DECK_SIZE = 26;
 		 
 		CardPile pile;
-		
+/* This constrctor takes no arguements and creates an instance of the War game
+ * by creating a deck of 52 cards, shuffling them, and then dividing them
+ * between two players. */		
 		public War()
 		{
 			// create new master deck
@@ -33,15 +40,25 @@ public class War
 			deck1.shuffle();
 			deck2.shuffle();
 		}
-		
+
+/* The getPlayer1 method takes no arguments and returns the deck created for Player 1
+ * @return The deck created for Player 1*/
 		public Deck getPlayer1()
 		{
 			return deck1;
 		}
+		
+/* The getPlayer2 method takes no arguments and returns the deck created for Player 2
+ * @return The deck created for Player 2*/		
 		public Deck getPlayer2()
 		{
 			return deck2;
 		}
+
+/* The flip method takes a Deck object as an argument and returns the top card off
+ * of the deck.
+ * @param d A Deck object with at least 1 card in it
+ * @return The top card from the deck */
 		public Card flip(Deck d)
 		{
 			return d.dealCard();

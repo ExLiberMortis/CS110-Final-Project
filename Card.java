@@ -1,12 +1,12 @@
-/*
-Sam Rowell
-CS110 - HW5
-Card class
-*/
+//~ Sam Rowell
+//~ CS110 - Project
+//~ Card class
 
 
+/* Represents a playing card */
 public class Card
 {
+	// instance variables
 	public static final int DIAMONDS = 15, HEARTS = 16, SPADES = 17, CLUBS = 18,   
 							JACK = 11, QUEEN = 12, KING = 13, ACE = 14;
 	private int rank, suit;
@@ -14,6 +14,9 @@ public class Card
 
 /**
 This constructor creates a card with a suit, rank, and image
+* @param rank A card's rank
+* @param suit A card's suit
+* @param image A card's front image
 */
 	public Card(int rank, int suit, String image)
 	{
@@ -87,7 +90,8 @@ The getImage method returns the file name of the image
 	}
 
  
-
+/** The rankToString method returns the card's rank as a string
+ * @return The card's rank */
 	public String rankToString()
 	{
 		switch ( rank ) 
@@ -108,7 +112,8 @@ The getImage method returns the file name of the image
            default:  return "??";
         }
 	}
-
+/** The suitToString method returns the card's suit as a string
+ * @return The card's suit */
 	public String suitToString()
 	{
         switch ( suit ) 
@@ -120,7 +125,8 @@ The getImage method returns the file name of the image
            default:       return "??";
         }
 	}
-	
+/* The toString method returns the full name of the card
+ * @return The card's full name as a string */	
 	public String toString()
 	{
 		return this.rankToString() + " of " + this.suitToString();

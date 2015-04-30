@@ -1,13 +1,13 @@
-/**
- * Representation of a Deck of cards.  
- * Initialized to a standard 52 card deck. 
- *
- * @author Sam Rowell
- */
+//~ Sam Rowell
+//~ CS110 - Project
+//~ Deck class
+
 
 import java.util.Random;
 import java.util.ArrayList;
 
+/**
+ * Representation of a Deck of cards. */
 public class Deck extends CardPile
 {
    /** 
@@ -18,14 +18,20 @@ public class Deck extends CardPile
    private int imageNameNum = 1;
 
    /** The collection of Cards */
-   // private CardPile deck;
    
-  
+   
+  /* This constructor creates a deck of a user provided number of cards and calls
+   * the superclass constructor* 
+   * @param numOfCards The number of cards to be alloted for in the Deck */ 
    public Deck(int numOfCards)
    {
 		super(numOfCards);
 	}
 	
+/* This constructor creates a deck of cards by calling the no-arg superclass 
+ * constructor and then setting the appropriate image values
+ * */
+  
 	public Deck()
 	{
 		super();
@@ -67,7 +73,9 @@ public class Deck extends CardPile
          cardPile.set(randNum,temp);
       }      
    }
-   
+  /* Return the number of cards left in the deck.
+   * @return The number of cards remaining
+   */ 
    public int cardsRemaining()
    {
 	   return super.cardsRemaining();
